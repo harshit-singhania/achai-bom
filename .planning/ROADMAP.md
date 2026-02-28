@@ -53,7 +53,11 @@ Plans:
   2. Submitting an upload hits the backend API and shows a processing state with live status polling
   3. When the job completes, the user lands on a results page (content populated in Phase 4)
   4. API errors (no file, bad format, server error) show clear user-facing messages
-**Plans**: TBD
+**Plans:** 2 plans
+
+Plans:
+- [ ] 03-react-spa-shell-upload-01-PLAN.md — Frontend scaffold (Vite+React+TS+Tailwind), combined /process endpoint, /results endpoint, typed API client, React Router shell
+- [ ] 03-react-spa-shell-upload-02-PLAN.md — Upload page (drag-drop PDF + prompt), Processing page (live job polling), Results page (BOM summary table + error handling)
 
 ### Phase 4: Layout Visualization + BOM Table
 **Goal**: The dual-pane view that sells the product — visual layout on the left, priced BOM on the right
@@ -97,7 +101,7 @@ Phases execute in numeric order: 2 → 3 → 4 → 5 → 6
 |-------|----------------|--------|-----------|
 | 1. Concerns Remediation | 10/10 | Complete | 2026-02-27 |
 | 2. BOM Calculator Engine | 3/3 | Complete | 2026-02-28 |
-| 3. React SPA — Shell + Upload | 0/? | Not started | - |
+| 3. React SPA — Shell + Upload | 0/2 | In progress | - |
 | 4. Layout Viz + BOM Table | 0/? | Not started | - |
 | 5. Export + Demo Polish | 0/? | Not started | - |
 | 6. Client-Facing Readiness | 0/? | Not started | - |
