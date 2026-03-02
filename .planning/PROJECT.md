@@ -35,7 +35,7 @@ Concretely:
 - PDF ingestion → wall/room detection (vector + raster Gemini fallback)
 - Gemini-powered layout generation with constraint validation, retry, adaptive fanout
 - Grid snapping, STRtree spatial indexing
-- Supabase persistence (projects, floorplans, BOMs, async jobs)
+- Supabase persistence (projects, floorplans, BOMs, async jobs) — migrating to Firebase Firestore (Phase 2.5)
 - Async job queue (Redis/RQ) — non-blocking 202 API
 - Security layer (API key auth, CORS, rate limiting, payload guards)
 - Deterministic dependency management (pip-tools lockfile)
@@ -69,6 +69,7 @@ Concretely:
 | 4 | No auth in frontend for MVP | Demo-only, API key hardcoded | 2026-02-27 |
 | 5 | SQLite test fixtures replaced with real Supabase | Production parity in tests | 2026-02-27 |
 | 6 | MVC architecture refactor | Clean layer separation: api/ → services/ → repositories/integrations/ | 2026-02-28 |
+| 7 | Firebase Firestore replaces Supabase | Supabase blocked by Indian government, migrate to Firestore | 2026-03-02 |
 
 ---
 *Updated: 2026-02-28*

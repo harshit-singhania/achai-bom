@@ -30,6 +30,10 @@
 - **POL-02**: Loading states, error messages, and transitions are smooth and professional
 - **POL-03**: Full demo can run without crashes or manual intervention
 
+### Migration (MIG-)
+
+- **MIG-01**: Migrate database from Supabase PostgreSQL to Firebase Firestore — replace SQLModel ORM with plain Pydantic models, rewrite all repositories for Firestore client, propagate string IDs through all layers, update tests to use Firestore emulator
+
 ### Client Readiness (CR-)
 
 - **CR-01**: Materials CRUD UI — add, edit, delete materials and rates from the frontend
@@ -72,3 +76,4 @@
 | CR-02 | Phase 6 | Pending |
 | CR-03 | Phase 6 | Pending |
 | CR-04 | Phase 6 | Pending |
+| MIG-01 | Phase 2.5 | Pending |

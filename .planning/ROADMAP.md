@@ -21,6 +21,7 @@ Take the solid backend (PDF ingestion, layout generation, persistence, async job
 ### 🚧 v1.0 Sellable MVP
 
 - [x] **Phase 2: BOM Calculator Engine** - Deterministic geometry-to-priced-materials pipeline with Indian market pricing
+- [ ] **Phase 2.5: Firebase Migration** - Replace Supabase PostgreSQL with Firebase Firestore
 - [ ] **Phase 3: React SPA — Shell + Upload Flow** - Frontend skeleton with PDF upload, job polling, and results routing
 - [ ] **Phase 4: Layout Visualization + BOM Table** - The money shot — 2D layout rendering and editable BOM spreadsheet
 - [ ] **Phase 5: Export + Demo Polish** - Excel/PDF export and end-to-end demo flow under 3 minutes
@@ -43,6 +44,25 @@ Plans:
 - [x] 02-bom-calculator-engine-01-PLAN.md — BOM domain types, materials catalog expansion (~45 items), materials repository
 - [x] 02-bom-calculator-engine-02-PLAN.md — Deterministic BOM calculator engine (TDD: geometry → priced line items)
 - [x] 02-bom-calculator-engine-03-PLAN.md — Wire BOM calculator into generate pipeline + integration tests
+
+### Phase 2.5: Firebase Migration
+**Goal**: Replace Supabase PostgreSQL (blocked in India) with Firebase Firestore — same API contracts, string IDs, all tests passing against emulator
+**Depends on**: Phase 2
+**Requirements**: MIG-01
+**Success Criteria** (what must be TRUE):
+  1. All 5 repositories use Firestore client instead of SQLAlchemy sessions
+  2. All model classes are plain Pydantic BaseModel (no SQLModel/SQLAlchemy imports)
+  3. ID fields are strings throughout the codebase (routes, services, workers, tests)
+  4. All tests pass against Firestore emulator (`FIRESTORE_EMULATOR_HOST=localhost:8080`)
+  5. No references to "supabase" or "SQLModel" remain in application code
+**Plans:** 5 plans
+
+Plans:
+- [ ] 02.5-firebase-migration-01-PLAN.md — Firebase core infra (client singleton, config) + model conversion (SQLModel → Pydantic)
+- [ ] 02.5-firebase-migration-02-PLAN.md — Rewrite all 5 repositories for Firestore
+- [ ] 02.5-firebase-migration-03-PLAN.md — Type propagation (int→str IDs) across services/workers/routes + seed script
+- [ ] 02.5-firebase-migration-04-PLAN.md — Test updates (Firestore emulator fixtures, str ID assertions)
+- [ ] 02.5-firebase-migration-05-PLAN.md — Documentation + cleanup (CLAUDE.md, AGENTS.md, codebase docs)
 
 ### Phase 3: React SPA — Shell + Upload Flow
 **Goal**: A contractor can open a browser, upload a PDF with a prompt, and watch it process
@@ -95,13 +115,14 @@ Plans:
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 2 → 3 → 4 → 5 → 6
+Phases execute in numeric order: 2 → 2.5 → 3 → 4 → 5 → 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Concerns Remediation | 10/10 | Complete | 2026-02-27 |
 | 2. BOM Calculator Engine | 3/3 | Complete | 2026-02-28 |
-| 3. React SPA — Shell + Upload | 0/2 | In progress | - |
+| 2.5. Firebase Migration | 0/5 | Planned | - |
+| 3. React SPA — Shell + Upload | 0/2 | Not started | - |
 | 4. Layout Viz + BOM Table | 0/? | Not started | - |
 | 5. Export + Demo Polish | 0/? | Not started | - |
 | 6. Client-Facing Readiness | 0/? | Not started | - |

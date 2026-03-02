@@ -5,9 +5,9 @@ milestone_name: Sellable MVP
 status: in_progress
 last_updated: "2026-02-28T21:00:00Z"
 progress:
-  total_phases: 6
+  total_phases: 7
   completed_phases: 2
-  total_plans: 15
+  total_plans: 20
   completed_plans: 13
 ---
 
@@ -18,16 +18,16 @@ progress:
 See: `.planning/PROJECT.md` (updated 2026-02-28)
 
 **Core value:** Compress 3 weeks of manual construction estimating into a 3-minute API call  
-**Current focus:** Phase 3 — React SPA Shell + Upload Flow
+**Current focus:** Phase 2.5 — Firebase Migration (Supabase blocked in India)
 
 ## Current Position
 
-Phase: 3 of 6 (React SPA — Shell + Upload Flow)  
-Plan: 0 of 2 in current phase  
-Status: Phase 3 planned (2 plans in 2 waves), ready for execution  
-Last activity: 2026-02-28 — Phase 3 planning complete
+Phase: 2.5 of 7 (Firebase Migration)
+Plan: 0 of 5 in current phase
+Status: Phase 2.5 planned (5 plans in 4 waves), ready for execution
+Last activity: 2026-03-02 — Phase 2.5 planning complete
 
-Progress: [▓▓▓░░░░░░░] 33%
+Progress: [▓▓▓░░░░░░░] 28%
 
 ## Performance Metrics
 
@@ -61,6 +61,7 @@ Recent decisions affecting current work:
 - [Phase 2]: Implemented pure `calculate_bom()` service (no AI, no DB, geometry-driven rules)
 - [Phase 2]: `_run_generate_job` now computes and persists priced BOM totals with graceful fallback to 0.0
 - [Post-Phase 2]: MVC refactor — separated repositories, integrations, and services into distinct layers
+- [Phase 2.5]: Supabase blocked in India → migrate to Firebase Firestore (same API contracts, string IDs)
 
 Full decision log: `.planning/PROJECT.md` Key Decisions table
 
@@ -74,6 +75,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-02-28  
-Stopped at: Phase 3 planning complete, 2 plans created, ready for execution  
-Resume file: `.planning/phases/03-react-spa-shell-upload/03-react-spa-shell-upload-01-PLAN.md`
+Last session: 2026-03-02
+Stopped at: Phase 2.5 planning complete, 5 plans created in 4 waves, ready for execution
+Resume file: `.planning/phases/02.5-firebase-migration/02.5-firebase-migration-01-PLAN.md`
